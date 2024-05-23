@@ -9,12 +9,10 @@
 - [Commits intermediaries](#commits-intermediaries)
 - [Initial setting](#initial-setting)
 - [Repository Git: local and remote](#repository-git-local-and-remote)
-- [Branch to feature](#branch-to-feature)
-- [Branch to feature](#branch-to-feature)
-- [Branch to feature](#branch-to-feature)
-- [Branch to feature](#branch-to-feature)
-- [Branch to feature](#branch-to-feature)
-- [Branch to feature](#branch-to-feature)
+- [Commits and version management](#commits-and-version-management)
+- [Workflow advanced](#workflow-advanced)
+- [Conflict resolution](#conflict-resolution)
+- [Case Studies and Best Practices](#case-studies-and-best-practices)
 
 ## Various Branches
 Branches: ramos em um repositorio. 
@@ -87,22 +85,68 @@ Local de manutencao é uma nova branch que serve para testar, resolver bugs e de
 Producao remota é onde o codigo finalizado é implementado para ser utilizado pelo usuario final.
 
 ## Vscode, Eclipse and Android Studio
-Para enviar a producao do repositorio local , que esta no Vscode, para o GitHub:
-- Tenha o [git instalado](#initial-setting) e (nesse contexto, voce ja esta com o repositorio clonado no vscode, se nao estiver, siga isso)
+### Para conseguir enviar a producao do repositorio local , que esta no Vscode, para o GitHub:
+- Tenha o [git instalado](#initial-setting) e ja tenha o repositorio criado no github
 
-- Para clonar o repositorio remoto no local: git clone url-do-repo-remoto
+- Agora, antes de comecar a desenvolver, clone o repositorio remoto no vscode: git clone url-do-repo-remoto
 
-- Ao criar sub-pasta, arquivos ou fazer outra coisa no repositorio, adicione essas mudancas para o repositorio remoto ficar atualizado: git add .
+- Ao criar sub-pasta, arquivos ou fazer outra coisa no repositorio local, adicione essas mudancas para o repositorio remoto ficar atualizado: git add .
 
 - Commita as mudancas: git commit -m "mensagem"
+
 - Atualize o repositorio local: git pull
+
 - Empurre para o repositorio remoto: git push
 
-Para enviar o repositorio local que esta no Eclipse para o GitHub:
-- siga o tutorial: https://www.youtube.com/watch?v=CMW8ZY1JpnI
+ ### Para enviar o repositorio local que esta no Eclipse para o GitHub:
+-  **Configuração Inicial**:
+   - Vá para `Window` > `Show View` > `Other...`.
+   - Selecione `Git Repositories` e clique em `OK`.
+   - Clique com o botão direito no Git Repositories View e selecione `Paste Repository Path or URI`.
+   - Cole o URL do repositório Git e clique em `Finish`.
+   - Configure seu nome de usuário e email em `Window` > `Preferences` > `Team` > `Git` > `Configuration`.
 
-Para enviar o repositorio local que esta no Android Studio para o GitHub:
-- siga o tutorial: https://www.youtube.com/watch?v=IY9Dex5L5_I
+ **Execução de Operações Git Dentro do Eclipse**
+- **Clonagem de Repositório**:
+  - Clique em `Clone a Git Repository` no Git Repositories View.
+  - Insira o URL do repositório e siga as instruções.
+
+- **Commit de Alterações**:
+  - Clique com o botão direito no projeto no Package Explorer.
+  - Vá para `Team` > `Commit`.
+  - Selecione os arquivos a serem commitados, insira uma mensagem de commit e clique em `Commit`.
+
+- **Push e Pull**:
+  - Clique com o botão direito no projeto no Package Explorer.
+  - Vá para `Team` > `Remote` > `Pull...` ou `Push...`.
+  - Escolha a branch desejada e siga as instruções.
+
+
+
+### Para enviar o repositorio local que esta no Android Studio para o GitHub:
+
+1.  **Configuração Inicial**
+-  **Inicialização de um Repositório Git**:
+   - Abra seu projeto no Android Studio.
+   - Vá para `VCS` > `Import into Version Control` > `Create Git Repository`.
+   - Selecione a pasta raiz do seu projeto e clique em `OK`.
+
+-  **Configuração do VCS**:
+   - Vá para `File` > `Settings` > `Version Control`.
+   - Selecione `Git` na lista e configure suas preferências, como email e nome de usuário.
+
+### Execução de Operações Git no Android Studio
+- **Commit de Alterações**:
+  - Vá para `VCS` > `Commit`.
+  - Selecione os arquivos a serem commitados, insira uma mensagem de commit e clique em `Commit`.
+
+- **Push e Pull**:
+  - Vá para `VCS` > `Git` > `Push` ou `Pull`.
+  - Escolha a branch desejada e siga as instruções.
+
+- **Criação de Branches**:
+  - Vá para `VCS` > `Git` > `Branches` > `New Branch`.
+  - Insira o nome da nova branch e clique em `OK`.
 
 ## Tag of version
 A tag de versao especifica/etiqueta um estado especifico do codigo. 
@@ -180,7 +224,105 @@ Diferenca entre repositorio local e remoto:
 
  - facilita colaboracao e beckup.
 
+## Commits and version management
+1. **Estratégias para commits limpos e eficazes.**
+- evite commits desnecessarios;
+- divida as alteracoes em unidades logicas e pequenas;
+- cada commit deve representar uma unica funcionalidade, correcao ou melhoria;
+- escreva a mensagem no commit com um verbo no imperativo (ex: Adicionar, corrigir);
+- seja claro, descreva o que foi alterado e por quê;
+- Evite commitar arquivos temporários, de configuração ou gerados automaticamente.
+
+## Workflow advanced
+
+**Fluxo de Trabalho Avançado**
+
+#### Backlog
+- Lista de tarefas pendentes ou desejadas para um projeto.
+- Geralmente organizada por prioridade e necessidade de implementação.
+
+#### Changelog
+- Registro de todas as mudanças feitas em um projeto, geralmente listando alterações por versão.
+- Ajuda a acompanhar o progresso do desenvolvimento e comunicar as alterações aos usuários.
+
+#### Versionamento em 3 Níveis (X.Y.Z)
+- **X**: Versão Principal
+  - Incrementada para grandes mudanças ou marcos significativos do projeto.
+- **Y**: Versão Secundária
+  - Incrementada para adições de funcionalidades ou melhorias significativas.
+- **Z**: Versão de Correção
+  - Incrementada para correções de bugs ou pequenas melhorias.
+
+Este sistema de versionamento permite uma comunicação clara das mudanças feitas em um projeto e ajuda os usuários a entenderem o impacto das atualizações.
+
+## Conflict resolution
 
 
 
 
+1. **Comunicação Efetiva**:
+   - Discuta o conflito abertamente e de forma construtiva.
+   - Ouça atentamente todas as partes envolvidas para entender suas perspectivas.
+
+2. **Negociação**:
+   - Busque um compromisso que atenda às necessidades de todas as partes.
+   - Identifique interesses comuns e explore soluções criativas.
+
+3. **Revisão de Código**:
+   - Utilize Pull Requests no GitHub para revisar e discutir mudanças antes de mesclar.
+   - A revisão de código antecipada pode prevenir conflitos e melhorar a qualidade do código.
+
+#### Ferramentas
+
+1. **Git Merge Tool**:
+   - O Git oferece ferramentas de mesclagem integradas para ajudar na resolução de conflitos de mesclagem.
+   - Exemplos incluem `git mergetool`, que pode ser configurado para usar ferramentas visuais como `meld`, `kdiff3` ou `Beyond Compare`.
+
+2. **GitHub Interface**:
+   - Use a interface do GitHub para identificar e resolver conflitos em Pull Requests.
+   - GitHub fornece uma interface visual para resolver conflitos diretamente no navegador.
+
+3. **IDEs com Suporte a Git**:
+   - Muitos IDEs, como Visual Studio Code, IntelliJ IDEA e Eclipse, oferecem recursos integrados para resolver conflitos de mesclagem.
+   - Essas ferramentas geralmente fornecem interfaces gráficas que facilitam a visualização e a resolução de conflitos.
+
+4. **Ferramentas de Linha de Comando**:
+   - Utilize comandos Git como `git status`, `git diff` e `git mergetool` para identificar e resolver conflitos.
+   - Ferramentas como `tig` podem ajudar a visualizar o histórico de commits e entender onde ocorrem os conflitos.
+
+
+## Case Studies and Best Practices
+
+1 - **Exemplos reais de utilização do Git em projetos de software:**
+    
+**React (Facebook)**:
+   - O projeto React usa Git para colaboração entre desenvolvedores distribuídos globalmente.
+   - Utiliza Pull Requests para revisões de código e integração contínua para testes automatizados.
+
+2 - **Dicas para manter a integridade do repositório.**
+
+
+**Mensagens de Commit Claras e Descritivas**:
+   - Escreva mensagens de commit que expliquem claramente o que foi alterado e por quê.
+   - Utilize um estilo consistente, como começar com um verbo no imperativo.
+
+**Uso de Branches**:
+   - Utilize branches para desenvolver novas funcionalidades, corrigir bugs e experimentar.
+   - Mantenha a branch principal (`main` ou `master`) sempre estável e pronta para produção.
+
+**Revisões de Código (Pull Requests)**:
+   - Use Pull Requests para revisar o código antes de mesclar nas branches principais.
+   - Encoraje feedback construtivo e múltiplos revisores para melhorar a qualidade do código.
+
+**Integração Contínua**:
+   - Configure integração contínua (CI) para testar automaticamente as alterações.
+   - Certifique-se de que todos os testes passem antes de mesclar mudanças.
+
+**Backup e Recuperação**:
+   - Regularmente faça backup do repositório, especialmente para projetos críticos.
+   - Utilize tags e releases para marcar versões estáveis e facilitar a recuperação de estados anteriores.
+
+**Documentação e Contribuição**:
+   - Mantenha uma documentação clara sobre como configurar e contribuir para o projeto.
+   - Forneça diretrizes para contribuidores para garantir um fluxo de trabalho consistente.
+   
