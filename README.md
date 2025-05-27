@@ -12,7 +12,9 @@
 - [Commits and version management](#commits-and-version-management)
 - [Workflow advanced](#workflow-advanced)
 - [Conflict resolution](#conflict-resolution)
-- [Case Studies and Best Practices](#case-studies-and-best-practices)
+- [Case Studies and Best Practices](#case-studies-and-best-practices
+- [Branch to feature](#branch-to-feature)
+  
 
 ## Various Branches
 Branches: ramos em um repositorio. 
@@ -325,4 +327,13 @@ Este sistema de versionamento permite uma comunicação clara das mudanças feit
 **Documentação e Contribuição**:
    - Mantenha uma documentação clara sobre como configurar e contribuir para o projeto.
    - Forneça diretrizes para contribuidores para garantir um fluxo de trabalho consistente.
+
+
+## Branch to feature
+É a branch destinada para testes, desenvolvimento de nova funcionalidade. Isso nao interfere em nada o codigo principal, pois ê tudo feito em uma branch secundaria. 
+
+Apos a sua utilizacao e merge ela pode ser excluida.
+1. para a exclusao, primeiro veja se o merge foi realmente realizado: git log (ele mostra historico de commit e confirma se o merge foi corretamente feito).
+2. exclusao local: git branch -d nome-branch-feature (ela so vai ser excluida se tiver sido feito o merge. Com o d maiusculo, com merge ou nao, sera excluido)
+3. excluindo do repo remoto: git push origin --delete nome-branch-feature
    
